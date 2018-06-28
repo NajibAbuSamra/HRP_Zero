@@ -48,6 +48,7 @@ public class DataAccess implements DataInterface{
 			port = new Portfolio(rs.getInt(DataContract.PortfolioTable.COL_ID), rs.getString(DataContract.PortfolioTable.COL_NAME));
 			portfolios.add(port);
 		}
+		logger.log(Level.INFO, "getPortfolios end...");
 		return portfolios;
 	}
 }

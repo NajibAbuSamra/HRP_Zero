@@ -51,8 +51,9 @@ public class GetPortfolios extends HttpServlet {
 		}
 		String json = new Gson().toJson(portfolios);
 		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8"); //NOTE: the json body is valid and does not have \u0000 in it, if chrome/else gives display issues solve in angular/js
 		response.getWriter().write(json);
+		logger.log(Level.INFO, "doGet: End...");
 	}
 
 	/**
