@@ -1,8 +1,15 @@
 package hrp.da;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import hrp.model.Portfolio;
+import hrp.constants.SQLStatements;
 
 
 
@@ -19,5 +26,28 @@ public class DataAccess implements DataInterface{
 		} else {
 			logger.log(Level.INFO, "Connection Established");
 		}
+	}
+	@Override
+	public void closeConnection() throws SQLException {
+		Logger logger = Logger.getLogger(DataAccess.class.getName());
+		logger.log(Level.INFO, "DataAccess closing connection");
+		if (c != null)
+			c.close();
+	}
+	
+	@Override
+	public ArrayList<Portfolio> getPortfolios() throws SQLException{
+		
+		Logger logger = Logger.getLogger(DataAccess.class.getName());
+		logger.log(Level.INFO, "getPortfolios start...");
+		ArrayList<Portfolio> portfolios = new ArrayList<Portfolio>();
+		Portfolio port = null;
+		PreparedStatement stm = c.prepareStatement(SQLStatements.selectAllPortfolios);
+		ResultSet rs = stm.executeQuery();
+		while(rs.next()) {
+			port = new Portfolio(rs.getInt(DataContract.PortfolioTable.COL_ID), rs.getString(DataContract.PortfolioTable.COL_NAME));
+			portfolios.add(port);
+		}
+		return portfolios;
 	}
 }
