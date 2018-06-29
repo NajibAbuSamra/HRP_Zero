@@ -45,7 +45,7 @@ public class DataAccess implements DataInterface{
 		PreparedStatement stm = c.prepareStatement(SQLStatements.selectAllPortfolios);
 		ResultSet rs = stm.executeQuery();
 		while(rs.next()) {
-			port = new Portfolio(rs.getInt(DataContract.PortfolioTable.COL_ID), rs.getString(DataContract.PortfolioTable.COL_NAME));
+			port = new Portfolio(rs.getInt(DataContract.PortfoliosTable.COL_ID), rs.getString(DataContract.PortfoliosTable.COL_NAME));
 			portfolios.add(port);
 		}
 		logger.log(Level.INFO, "getPortfolios end...");
