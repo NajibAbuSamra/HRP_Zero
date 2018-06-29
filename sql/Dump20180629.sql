@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `hrpdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+USE `hrpdb`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: hrpdb
@@ -29,8 +31,8 @@ CREATE TABLE `account_orgcon` (
   PRIMARY KEY (`id`),
   KEY `id_account_idx` (`account_id`),
   KEY `id_orgcon_idx` (`orgcon_id`),
-  CONSTRAINT `id_account` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`),
-  CONSTRAINT `id_orgcon` FOREIGN KEY (`orgcon_id`) REFERENCES `orgcon` (`id`)
+  CONSTRAINT `aoc_id_account` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`),
+  CONSTRAINT `aoc_id_orgcon` FOREIGN KEY (`orgcon_id`) REFERENCES `orgcon` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -59,7 +61,7 @@ CREATE TABLE `accounts` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `id_port_idx` (`port_id`),
-  CONSTRAINT `id_port` FOREIGN KEY (`port_id`) REFERENCES `portfolios` (`id`)
+  CONSTRAINT `acc_id_port` FOREIGN KEY (`port_id`) REFERENCES `portfolios` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -137,8 +139,8 @@ CREATE TABLE `orgcon` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `id_org_idx` (`org_id`),
   KEY `id_count_idx` (`count_id`),
-  CONSTRAINT `id_count` FOREIGN KEY (`count_id`) REFERENCES `countries` (`id`),
-  CONSTRAINT `id_org` FOREIGN KEY (`org_id`) REFERENCES `organizations` (`id`)
+  CONSTRAINT `oc_id_count` FOREIGN KEY (`count_id`) REFERENCES `countries` (`id`),
+  CONSTRAINT `oc_id_org` FOREIGN KEY (`org_id`) REFERENCES `organizations` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -185,4 +187,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-29 12:43:09
+-- Dump completed on 2018-06-29 13:09:27
