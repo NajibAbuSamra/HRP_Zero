@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import hrp.model.Portfolio;
+import hrp.model.Customer;
 import hrp.constants.SQLStatements;
 
 
@@ -36,19 +36,19 @@ public class DataAccess implements DataInterface{
 	}
 	
 	@Override
-	public ArrayList<Portfolio> getPortfolios() throws SQLException{
+	public ArrayList<Customer> getCustomers() throws SQLException{
 		
 		Logger logger = Logger.getLogger(DataAccess.class.getName());
-		logger.log(Level.INFO, "getPortfolios start...");
-		ArrayList<Portfolio> portfolios = new ArrayList<Portfolio>();
-		Portfolio port = null;
+		logger.log(Level.INFO, "getCustomers start...");
+		ArrayList<Customer> customers = new ArrayList<Customer>();
+		Customer cust = null;
 		PreparedStatement stm = c.prepareStatement(SQLStatements.selectAllPortfolios);
 		ResultSet rs = stm.executeQuery();
 		while(rs.next()) {
-			port = new Portfolio(rs.getInt(DataContract.PortfoliosTable.COL_ID), rs.getString(DataContract.PortfoliosTable.COL_NAME));
-			portfolios.add(port);
+			cust = new Customer(rs.getInt(DataContract.CustomersTable.COL_ID), rs.getString(DataContract.CustomersTable.COL_NAME));
+			customers.add(cust);
 		}
 		logger.log(Level.INFO, "getPortfolios end...");
-		return portfolios;
+		return customers;
 	}
 }
