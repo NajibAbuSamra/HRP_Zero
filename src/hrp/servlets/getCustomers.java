@@ -17,9 +17,7 @@ import com.google.gson.Gson;
 import hrp.da.DataAccess;
 import hrp.model.Customer;
 
-/**
- * Servlet implementation class getPortfolios
- */
+
 @WebServlet("/getCustomers")
 public class getCustomers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
