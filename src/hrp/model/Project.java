@@ -2,25 +2,31 @@ package hrp.model;
 
 import java.sql.Date;
 
-public class Account {
+public class Project {
 	int id;
+	int customer_id;
 	String name;
 	Date start_date;
 	Date due_date;
-	int port_id;
-	public Account(int id, String name, Date start_date, Date due_date, int port_id) {
+	public Project(int id, int customer_id, String name, Date start_date, Date due_date) {
 		super();
 		this.id = id;
+		this.customer_id = customer_id;
 		this.name = name;
 		this.start_date = start_date;
 		this.due_date = due_date;
-		this.port_id = port_id;
 	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getCustomer_id() {
+		return customer_id;
+	}
+	public void setCustomer_id(int customer_id) {
+		this.customer_id = customer_id;
 	}
 	public String getName() {
 		return name;
@@ -40,16 +46,11 @@ public class Account {
 	public void setDue_date(Date due_date) {
 		this.due_date = due_date;
 	}
-	public int getPort_id() {
-		return port_id;
-	}
-	public void setPort_id(int port_id) {
-		this.port_id = port_id;
-	}
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", name=" + name + ", start_date=" + start_date + ", due_date=" + due_date
-				+ ", port_id=" + port_id + "]";
+		return "Project [id=" + id + ", customer_id=" + customer_id + ", name=" + name + ", start_date=" + start_date
+				+ ", due_date=" + due_date + "]";
 	}
+	
 	
 }

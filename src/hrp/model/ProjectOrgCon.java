@@ -1,13 +1,13 @@
 package hrp.model;
 
-public class AccountOrgCon {
+public class ProjectOrgCon {
 	int id;
-	int account_id;
+	int project_id;
 	int orgcon_id;
-	public AccountOrgCon(int id, int account_id, int orgcon_id) {
+	public ProjectOrgCon(int id, int project_id, int orgcon_id) {
 		super();
 		this.id = id;
-		this.account_id = account_id;
+		this.project_id = project_id;
 		this.orgcon_id = orgcon_id;
 	}
 	public int getId() {
@@ -16,11 +16,11 @@ public class AccountOrgCon {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getAccount_id() {
-		return account_id;
+	public int getProject_id() {
+		return project_id;
 	}
-	public void setAccount_id(int account_id) {
-		this.account_id = account_id;
+	public void setProject_id(int project_id) {
+		this.project_id = project_id;
 	}
 	public int getOrgcon_id() {
 		return orgcon_id;
@@ -30,7 +30,7 @@ public class AccountOrgCon {
 	}
 	@Override
 	public String toString() {
-		return "AccountOrgCon [id=" + id + ", account_id=" + account_id + ", orgcon_id=" + orgcon_id + "]";
+		return "ProjectOrgCon [id=" + id + ", project_id=" + project_id + ", orgcon_id=" + orgcon_id + "]";
 	}
 	
 }
