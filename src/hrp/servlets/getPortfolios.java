@@ -43,6 +43,7 @@ public class getPortfolios extends HttpServlet {
 		ArrayList<Portfolio> portfolios = null;
 		try {
 			portfolios = da.getPortfolios();
+			da.closeConnection();
 		} catch (SQLException e) {
 			logger.log(Level.INFO, "doGet: DA THREW EXCEPTION");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
@@ -53,6 +54,7 @@ public class getPortfolios extends HttpServlet {
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8"); //NOTE: the json body is valid and does not have \u0000 in it, if chrome/else gives display issues solve in angular/js
 		response.getWriter().write(json);
+		
 		logger.log(Level.INFO, "doGet: End...");
 	}
 
