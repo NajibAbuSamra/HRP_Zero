@@ -18,7 +18,7 @@ import hrp.da.DataAccess;
 import hrp.model.Portfolio;
 
 /**
- * Servlet implementation class GetPortfolios
+ * Servlet implementation class getPortfolios
  */
 @WebServlet("/getPortfolios")
 public class getPortfolios extends HttpServlet {
