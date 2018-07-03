@@ -48,6 +48,9 @@ public class getCustomers extends HttpServlet {
 			e.printStackTrace();
 			return;
 		}
+	    response.addHeader("Access-Control-Allow-Origin", "*"); 
+	    response.addHeader("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS"); 
+	    response.addHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With"); 
 		String json = new Gson().toJson(customers);
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8"); //NOTE: the json body is valid and does not have \u0000 in it, if chrome/else gives display issues solve in angular/js
