@@ -3,11 +3,11 @@ package hrp.da;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import hrp.model.Portfolio;
+import hrp.model.Customer;
 
 public interface DataInterface {
 
-	public ArrayList<Portfolio> getPortfolios() throws SQLException;
+	public ArrayList<Customer> getCustomers() throws SQLException;
 
 	void closeConnection() throws SQLException;
 	

@@ -15,19 +15,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import hrp.da.DataAccess;
-import hrp.model.Portfolio;
+import hrp.model.Customer;
 
-/**
- * Servlet implementation class getPortfolios
- */
-@WebServlet("/getPortfolios")
-public class getPortfolios extends HttpServlet {
+
+@WebServlet("/getCustomers")
+public class getCustomers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getPortfolios() {
+    public getCustomers() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,13 +34,13 @@ public class getPortfolios extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Logger logger = Logger.getLogger("GetPortfolios servlet");
+		Logger logger = Logger.getLogger("getCustomers servlet");
 		logger.log(Level.INFO, "doGet: Start...");
 		DataAccess da = new DataAccess();
 		logger.log(Level.INFO, "DA ready");
-		ArrayList<Portfolio> portfolios = null;
+		ArrayList<Customer> customers = null;
 		try {
-			portfolios = da.getPortfolios();
+			customers = da.getCustomers();
 			da.closeConnection();
 		} catch (SQLException e) {
 			logger.log(Level.INFO, "doGet: DA THREW EXCEPTION");
@@ -50,7 +48,10 @@ public class getPortfolios extends HttpServlet {
 			e.printStackTrace();
 			return;
 		}
-		String json = new Gson().toJson(portfolios);
+	    response.addHeader("Access-Control-Allow-Origin", "*"); 
+	    response.addHeader("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS"); 
+	    response.addHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With"); 
+		String json = new Gson().toJson(customers);
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8"); //NOTE: the json body is valid and does not have \u0000 in it, if chrome/else gives display issues solve in angular/js
 		response.getWriter().write(json);
