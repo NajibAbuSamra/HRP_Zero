@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import hrp.model.Customer;
+import hrp.model.Project_oc;
 import hrp.constants.SQLStatements;
 
 
@@ -50,5 +51,20 @@ public class DataAccess implements DataInterface{
 		}
 		logger.log(Level.INFO, "getPortfolios end...");
 		return customers;
+	}
+	@Override
+	public ArrayList<Integer> getProjectOrgConIdsByProjectId(int projectID) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public ArrayList<Integer> getProjectUpdateIdByProjectId(int projectID) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Project_oc getPredictionByProjectId(int projectid) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
