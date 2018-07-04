@@ -51,4 +51,14 @@ public class DataAccess implements DataInterface{
 		logger.log(Level.INFO, "getPortfolios end...");
 		return customers;
 	}
+	@Override
+	public ArrayList<Integer> getProjectOrgConIdsByProjectId(int projectID) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public ArrayList<Integer> getProjectUpdateIdByProjectId(int projectID) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
