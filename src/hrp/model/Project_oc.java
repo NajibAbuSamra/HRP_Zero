@@ -1,12 +1,13 @@
 package hrp.model;
 
-import java.util.ArrayList;
 
 public class Project_oc {
 	private double actual;
 	private Country count;
 	private Organization orgn;
-	ArrayList<HrPridection> hr_pr;
+	private int Id_poc;
+	
+	
 	public double getActual() {
 		return actual;
 	}
@@ -25,11 +26,11 @@ public class Project_oc {
 	public void setOrgn(Organization orgn) {
 		this.orgn = orgn;
 	}
-	public ArrayList<HrPridection> getHr_pr() {
-		return hr_pr;
+	public int getId_poc() {
+		return Id_poc;
 	}
-	public void setHr_pr(ArrayList<HrPridection> hr_pr) {
-		this.hr_pr = hr_pr;
+	public void setId_poc(int id_poc) {
+		Id_poc = id_poc;
 	}
 	
 	
