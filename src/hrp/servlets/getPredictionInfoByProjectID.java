@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class getPredictionInfo
  */
-@WebServlet("/getPredictionInfo")
-public class getPredictionInfo extends HttpServlet {
+@WebServlet("/getPredictionInfoByProjectID")
+public class getPredictionInfoByProjectID extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getPredictionInfo() {
+    public getPredictionInfoByProjectID() {
         super();
         // TODO Auto-generated constructor stub
     }
