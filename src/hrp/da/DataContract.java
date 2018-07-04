@@ -33,7 +33,7 @@ public class DataContract {
 	public static class ProjectOrgConTable{
 		public static final String TABLE_NAME = "project_orgcon";
 		public static final String COL_ID = "project_orgcon_id";
-		public static final String COL_ACCOUNTID = "project_id";
+		public static final String COL_PROJECTID = "project_id";
 		public static final String COL_ORGCONID = "orgcon_id";
 	}
 	public static class ProjectUpdateTable{
