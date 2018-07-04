@@ -21,5 +21,6 @@ public class SQLStatements {
 			+ DataContract.CountriesTable.TABLE_NAME + " c WHERE b." + DataContract.OrgConTable.COL_ID + " =? AND b."
 			+ DataContract.OrgConTable.COL_COUNTID + " = c." + DataContract.CountriesTable.COL_ID + " AND b."
 			+ DataContract.OrgConTable.COL_ORGID + " = o." + DataContract.OrganizationsTable.COL_ID + ";";
+	public final static String selectDueDateFromProjectUpdateByProjectId = "SELECT " + DataContract.ProjectUpdateTable.COL_CURRENTDUEDATE + " FROM " + DataContract.ProjectUpdateTable.TABLE_NAME + " WHERE " + DataContract.ProjectUpdateTable.COL_PROJECTID + " = ?;";
 	
 }
