@@ -12,7 +12,7 @@ public class DataContract {
 		public static final String COL_NAME = "name";
 		public static final String COL_STARTDATE = "start_date";
 		public static final String COL_DUEDATE = "due_date";
-		public static final String COL_PORTID = "customer_id";
+		public static final String COL_CUSTOMERID = "customer_id";
 	}
 	public static class OrganizationsTable{
 		public static final String TABLE_NAME = "organizations";
@@ -33,7 +33,7 @@ public class DataContract {
 	public static class ProjectOrgConTable{
 		public static final String TABLE_NAME = "project_orgcon";
 		public static final String COL_ID = "project_orgcon_id";
-		public static final String COL_ACCOUNTID = "project_id";
+		public static final String COL_PROJECTID = "project_id";
 		public static final String COL_ORGCONID = "orgcon_id";
 	}
 	public static class ProjectUpdateTable{

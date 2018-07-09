@@ -15,17 +15,20 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import hrp.da.DataAccess;
-import hrp.model.Customer;
+import hrp.model.Country;
+import hrp.model.Organization;
 
-
-@WebServlet("/getCustomers")
-public class getCustomers extends HttpServlet {
+/**
+ * Servlet implementation class getOrganizations
+ */
+@WebServlet("/getOrganizations")
+public class getOrganizations extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getCustomers() {
+    public getOrganizations() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,13 +37,13 @@ public class getCustomers extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Logger logger = Logger.getLogger("getCustomers servlet");
+		Logger logger = Logger.getLogger("getOrganizations servlet");
 		logger.log(Level.INFO, "doGet: Start...");
 		DataAccess da = new DataAccess();
 		logger.log(Level.INFO, "DA ready");
-		ArrayList<Customer> customers = null;
+		ArrayList<Organization> organizations = null;
 		try {
-			customers = da.getCustomers();
+			organizations = da.getOrganizations();
 			da.closeConnection();
 		} catch (SQLException e) {
 			logger.log(Level.INFO, "doGet: DA THREW EXCEPTION");
@@ -51,7 +54,7 @@ public class getCustomers extends HttpServlet {
 	    response.addHeader("Access-Control-Allow-Origin", "*"); 
 	    response.addHeader("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS"); 
 	    response.addHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With"); 
-		String json = new Gson().toJson(customers);
+		String json = new Gson().toJson(organizations);
 	
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8"); //NOTE: the json body is valid and does not have \u0000 in it, if chrome/else gives display issues solve in angular/js
