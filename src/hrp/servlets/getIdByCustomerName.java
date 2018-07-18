@@ -1,34 +1,23 @@
 package hrp.servlets;
 
-import java.util.List;
-import java.util.Map;
-import java.io.File;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.csv.CsvMapper;
-import com.fasterxml.jackson.dataformat.csv.CsvSchema;
-
-
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 /**
- * Servlet implementation class CSV2JSON
+ * Servlet implementation class getIdByCustomerName
  */
-@WebServlet("/CSV2JSON")
-@MultipartConfig
-public class CSV2JSON extends HttpServlet {
+@WebServlet("/getIdByCustomerName")
+public class getIdByCustomerName extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CSV2JSON() {
+    public getIdByCustomerName() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -45,8 +34,8 @@ public class CSV2JSON extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		 Part filePart = request.getPart("file");
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
