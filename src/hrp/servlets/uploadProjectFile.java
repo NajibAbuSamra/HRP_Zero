@@ -1,9 +1,11 @@
 package hrp.servlets;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -52,17 +54,36 @@ public class uploadProjectFile extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    Part filePart = request.getPart("uploadfile"); // Retrieves <input type="file" name="file">
 	    InputStream fileContent = filePart.getInputStream();
+	    BufferedReader br = null;
+	    StringBuilder sb = new StringBuilder();
+	    br = new BufferedReader(new InputStreamReader(fileContent));
+	    String line;
+	    PrintWriter pw = new PrintWriter(new File("C:\\Users\\mayas\\Desktop\\csv files\\csv2.csv"));
+	    while ((line = br.readLine()) != null) {
+            // use comma as separator
+        String[] emp = line.split(",");
+       // PrintWriter pw = new PrintWriter(new File("C:\\Users\\mayas\\Desktop\\csv files\\csv2.csv"));
+        for(int i=0;i<emp.length;i++) {
+        sb.append(emp[i]);
+        sb.append(',');
+        }
+        sb.append('\n');
+        pw.write(sb.toString());  
+        sb.setLength(0);
+    }
+	    pw.close();
 
-	    String temp = getStringFromInputStream(fileContent);
+	    
+	 //   String temp = getStringFromInputStream(fileContent);
 	    			    
 	    response.addHeader("Access-Control-Allow-Origin", "*"); 
 	    response.addHeader("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS"); 
 	    response.addHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With"); 
-		String json = new Gson().toJson(temp);
+		//String json = new Gson().toJson(temp);
 	
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8"); 
-		response.getWriter().write(json);
+		//response.getWriter().write(json);
 	        
 	}
 	
